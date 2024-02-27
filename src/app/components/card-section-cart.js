@@ -1,4 +1,5 @@
 import { increaseProduct } from "../../scripts/increase-product.js";
+import { increaseProduct } from "../../scripts/increase-product.js";
 
 export function cardSectionCart() {
 	let prod = JSON.parse(localStorage.getItem("products"));
@@ -41,6 +42,8 @@ function card(p) {
 	btnDecrease.type = "button";
 	btnDecrease.className = "btn btn-primary me-2";
 	btnDecrease.innerHTML = "<i class='bi bi-cart-dash'></i>";
+	btnDecrease.onclick = () => decreaseProduct(p.id);
+
 	//create button remove product
 	const btnRemove = $.createElement("button");
 	btnRemove.type = "button";
