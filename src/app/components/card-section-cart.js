@@ -1,5 +1,5 @@
 import { increaseProduct } from "../../scripts/increase-product.js";
-import { increaseProduct } from "../../scripts/increase-product.js";
+import { decreaseProduct } from "../../scripts/decrease-product.js";
 
 export function cardSectionCart() {
 	let prod = JSON.parse(localStorage.getItem("products"));
