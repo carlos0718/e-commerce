@@ -9,4 +9,7 @@ export function increaseProduct(id) {
 
 	const spanCount = document.querySelector(`#count-product-${id}`);
 	spanCount.textContent = product.count;
+
+	const btnDecrease = document.querySelector("#btn-decrease");
+	btnDecrease.disabled = false;
 }

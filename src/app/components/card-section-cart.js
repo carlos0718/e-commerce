@@ -3,7 +3,6 @@ import { decreaseProduct } from "../../scripts/decrease-product.js";
 
 export function cardSectionCart() {
 	let prod = JSON.parse(localStorage.getItem("products"));
-	console.log("prod ", prod);
 	prod &&
 		prod.map((p) => {
 			return card(p);
@@ -12,7 +11,6 @@ export function cardSectionCart() {
 
 function card(p) {
 	const $ = document;
-	console.log("p ", p);
 
 	//create div container img
 	const divImg = $.createElement("div");
@@ -24,31 +22,33 @@ function card(p) {
 	title.className = "card-title";
 	title.textContent = p.title;
 
-	//create button add product
+	//create btn decrease product
+	const btnDecrease = $.createElement("button");
+	btnDecrease.type = "button";
+	btnDecrease.id = "btn-decrease";
+	btnDecrease.className = "btn btn-primary me-2";
+	btnDecrease.innerHTML = "<i class='bi bi-cart-dash'></i>";
+	btnDecrease.onclick = () => decreaseProduct(p.id);
 
-	const btnAdd = $.createElement("button");
-	btnAdd.type = "button";
-	btnAdd.className = "btn btn-primary me-2";
-	btnAdd.innerHTML = "<i class='bi bi-cart-plus'></i>";
-	btnAdd.onclick = () => increaseProduct(p.id);
 	//create span count product
 	const spanCount = $.createElement("span");
 	spanCount.className = "btn btn-outline-secondary me-2";
 	spanCount.id = `count-product-${p.id}`;
 	spanCount.textContent = p.count;
 
-	//create btn decrease product
-	const btnDecrease = $.createElement("button");
-	btnDecrease.type = "button";
-	btnDecrease.className = "btn btn-primary me-2";
-	btnDecrease.innerHTML = "<i class='bi bi-cart-dash'></i>";
-	btnDecrease.onclick = () => decreaseProduct(p.id);
+	//create button add product
+	const btnAdd = $.createElement("button");
+	btnAdd.type = "button";
+	btnAdd.className = "btn btn-primary me-2";
+	btnAdd.innerHTML = "<i class='bi bi-cart-plus'></i>";
+	btnAdd.onclick = () => increaseProduct(p.id);
 
 	//create button remove product
 	const btnRemove = $.createElement("button");
 	btnRemove.type = "button";
 	btnRemove.className = "btn btn-danger";
 	btnRemove.innerHTML = "<i class='bi bi-trash'></i>";
+
 	//create div container count product
 	const divContainerCount = $.createElement("div");
 	divContainerCount.className = "d-flex justify-content-center";
