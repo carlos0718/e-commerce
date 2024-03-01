@@ -25,7 +25,7 @@ function card(p) {
 	//create btn decrease product
 	const btnDecrease = $.createElement("button");
 	btnDecrease.type = "button";
-	btnDecrease.id = "btn-decrease";
+	btnDecrease.id = `btn-decrease-${p.id}`;
 	btnDecrease.className = "btn btn-primary me-2";
 	btnDecrease.innerHTML = "<i class='bi bi-cart-dash'></i>";
 	btnDecrease.onclick = () => decreaseProduct(p.id);

@@ -8,7 +8,7 @@ export function decreaseProduct(id) {
 
 	const spanCount = document.querySelector(`#count-product-${id}`);
 	spanCount.textContent = product.count;
-	
-	const btnDecrease = document.querySelector("#btn-decrease");
+
+	const btnDecrease = document.querySelector(`#btn-decrease-${id}`);
 	btnDecrease.disabled = product.count === 1;
 }
