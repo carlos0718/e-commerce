@@ -1,5 +1,6 @@
 import { increaseProduct } from "../../scripts/increase-product.js";
 import { decreaseProduct } from "../../scripts/decrease-product.js";
+import { deleteProduct } from "../../scripts/delete-product.js";
 
 export function cardSectionCart() {
 	let prod = JSON.parse(localStorage.getItem("products"));
@@ -15,7 +16,7 @@ function card(p) {
 	//create div container img
 	const divImg = $.createElement("div");
 	divImg.className = "col-md-4";
-	divImg.innerHTML = `<img src='${p.image}' class='img-fluid rounded-start' alt='...'>`;
+	divImg.innerHTML = `<img src='${p.image}' class='img-fluid rounded-start' alt='.${p.title}'>`;
 
 	// create title
 	const title = $.createElement("h5");
@@ -47,7 +48,9 @@ function card(p) {
 	const btnRemove = $.createElement("button");
 	btnRemove.type = "button";
 	btnRemove.className = "btn btn-danger";
+	btnRemove.id = `btn-remove-${p.id}`;
 	btnRemove.innerHTML = "<i class='bi bi-trash'></i>";
+	btnRemove.onclick = () => deleteProduct(p.id);
 
 	//create div container count product
 	const divContainerCount = $.createElement("div");
