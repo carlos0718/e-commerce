@@ -1,6 +1,7 @@
 import { increaseProduct } from "../../scripts/increase-product.js";
 import { decreaseProduct } from "../../scripts/decrease-product.js";
 import { deleteProduct } from "../../scripts/delete-product.js";
+import { sideBar } from "./sidebar.js";
 
 export function cardSectionCart() {
 	let prod = JSON.parse(localStorage.getItem("products"));
@@ -50,8 +51,9 @@ function card(p) {
 	btnRemove.className = "btn btn-danger";
 	btnRemove.id = `btn-remove-${p.id}`;
 	btnRemove.innerHTML = "<i class='bi bi-trash'></i>";
-	btnRemove.onclick = () => deleteProduct(p.id);
-
+	btnRemove.onclick = () => {
+		deleteProduct(p.id);
+	};
 	//create div container count product
 	const divContainerCount = $.createElement("div");
 	divContainerCount.className = "d-flex justify-content-center";
@@ -82,6 +84,7 @@ function card(p) {
 	const divCardContainer = $.createElement("div");
 	divCardContainer.className = "card mb-3";
 	divCardContainer.style.maxWidth = "540px";
+	divCardContainer.id = `card-${p.id}`;
 	divCardContainer.appendChild(divCardRow);
 
 	$.addEventListener("DOMContentLoaded", () => {

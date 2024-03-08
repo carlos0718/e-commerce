@@ -5,4 +5,8 @@ export function deleteProduct(id) {
 	product.splice(index, 1);
 	console.log("product::", product);
 	localStorage.setItem("products", JSON.stringify(product));
+
+	//remove card of DOM
+	const card = document.getElementById(`card-${id}`);
+	card.remove();
 }
