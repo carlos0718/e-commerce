@@ -9,6 +9,9 @@ export function decreaseProduct(id) {
 	const spanCount = document.querySelector(`#count-product-${id}`);
 	spanCount.textContent = product.count;
 
+	const sectionPrice = document.querySelector(`#price-${product.id}`);
+	sectionPrice.textContent = `Total: $ ${product.price * product.count * 1000}`;
+
 	const btnDecrease = document.querySelector(`#btn-decrease-${id}`);
 	btnDecrease.disabled = product.count === 1;
 }
