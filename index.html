@@ -20,8 +20,11 @@
         <nav id="nav-bar" class='navbar bg-body-tertiary'>
             <!-- navbar generado desde js -->
         </nav>
-        <section>
-            <input type="search" name="product" id="search-prod">
+        <section class="d-flex justify-content-center m-5">
+            <div class="input-group w-75">
+                <input class="form-control" type="text" name="filterProduct" id="filter-prod">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+            </div>
         </section>
         <section class="m-md-5">
             <div id="card-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-md-2 g-lg-4">
@@ -30,6 +33,7 @@
         </section>
     </div>
 
+    <script type="module" src="./src/scripts/input-filter.js"></script>
     <script type="module" src="./src/app/app.js"></script>
 </body>
 

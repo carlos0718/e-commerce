@@ -1,6 +1,7 @@
 import { modalCard } from "./modal.js";
 
 export function cardSection(product) {
+	console.log(product);
 	const $ = document;
 	//create div car body
 	const divCarBody = $.createElement("div");
