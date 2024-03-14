@@ -29,6 +29,16 @@ export function sideBar() {
 	//call function to create card section cart
 	cardSectionCart();
 
+	const btnFinalizePurchase = $.createElement("button");
+	btnFinalizePurchase.type = "button";
+	btnFinalizePurchase.className = "btn btn-primary w-100 m-3";
+	btnFinalizePurchase.textContent = "Finalizar compra";
+	btnFinalizePurchase.id = "finalize-purchase";
+	btnFinalizePurchase.onclick = () => {
+		localStorage.removeItem("products");
+		window.location.reload();
+	};
+
 	// create btn delete products of cart
 	const btnDelete = $.createElement("button");
 	btnDelete.type = "button";
@@ -50,7 +60,9 @@ export function sideBar() {
 	canvaContainer.appendChild(canvaHeader);
 	canvaContainer.appendChild(canvaBody);
 	//validate if exist products in localstorage
-	localStorage.getItem("products") ? canvaContainer.appendChild(btnDelete) : null;
+	localStorage.getItem("products")
+		? (canvaContainer.appendChild(btnFinalizePurchase), canvaContainer.appendChild(btnDelete))
+		: null;
 
 	$.body.appendChild(canvaContainer);
 }
